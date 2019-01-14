@@ -14,8 +14,21 @@ def process_file(file):
         words.extend(word)
     return words   
 
-file_process('test.txt')
 
 #2
-def  make_dict(file):
-    processed_File = process_file(file)
+def make_dict(file):
+    words_list = process_file(file)
+
+    word_dict = {}
+
+    for word in words_list:
+        word_dict[word] = 0
+
+
+    for word in words_list:
+        word_dict[word] += 1
+
+    for word, frequency in word_dict.items():
+        print('{} {}'.format(word, frequency))
+
+make_dict("test.txt")
