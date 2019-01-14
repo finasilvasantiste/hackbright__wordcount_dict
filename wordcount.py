@@ -22,13 +22,10 @@ def make_dict(file):
     word_dict = {}
 
     for word in words_list:
-        word_dict[word] = 0
-
-
-    for word in words_list:
-        word_dict[word] += 1
+        word_dict[word] = word_dict.get(word, 0) + 1
+        #if it finds the key word then it will + 1, otherwise it returns the default we have set as 0
 
     for word, frequency in word_dict.items():
-        print('{} {}'.format(word, frequency))
+        print('{} {}'.format(word,frequency))
 
 make_dict("test.txt")
